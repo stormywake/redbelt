@@ -25,7 +25,7 @@ class Sessions extends CI_Controller {
 			$user_info = array(
 				'id'=>$user['id'],
 				'name'=>$user['name'],
-				'alias'=>$user['alias'],
+				'username'=>$user['username'],
 				'is_logged_in'=>TRUE
 				);
 
@@ -48,7 +48,8 @@ class Sessions extends CI_Controller {
 			{
 				redirect(base_url('sessions/new'));
 			}
-			$this->load->view('home');
+			// $this->load->view('home');
+			redirect(base_url('trips/show_all_user_trips'));
 		}
 
 		public function destroy()

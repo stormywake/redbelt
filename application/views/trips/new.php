@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Trip Planner Login</title>
+    <title>Trip Planner New Trip</title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url('assets/css/bootstrap.min.css" rel="stylesheet')?>">
@@ -19,73 +19,61 @@
     <![endif]-->
   </head>
   <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
+  	  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="<?= base_url('/home')?>">Home</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="<?= base_url('/reviews/new')?>">Add a new trip!</a></li>
           <li><a href="<?= base_url('/destroy')?>">logout</a></li>
         </ul>
       </div>
     </nav>
-
+    
     <div class="container">
-    	<div class="row">
-    		<div class="col-md-4 col-md-offset-4">
-				<div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1 class="page-header">Add New Trip</h1>
+            <form method="post" action="<?= base_url('trips/create') ?>">
+              <div class="form-group">
+                <label>Destination:</label>
+                <input type="text" class="form-control" name="destination" placeholder="Destination" autofocus>
+              </div>
 
-        
+              <div class="form-group">
+                <label>Description:</label>
+                <textarea class="form-control" name="description" placeholder="Description" rows="5"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Travel Date From:</label>
+                <input type="date" class="form-control" name="travel_date_from">
+              </div>
+
+              <div class="form-group">
+                <label>Travel Date to:</label>
+                <input type="date" class="form-control" name="travel_date_to">
+              </div>
+
+              <div class="form-group">
+                <input type="submit" class="form-control btn btn-success" value="Submit">
+              </div>
+
+            </form>
+        </div> <!-- end of col -->
+      </div><!--  end of row -->
+    </div> <!-- end of container -->
+
+            
+ 
+
+
+
+
+ 
           
-          <h1>Login</h1>
-          <form method="post" action="/Sessions/create">
-
-          <!-- Display success message -->
-          <?php 
-            if($this->session->flashdata('success'))
-              { ?>
-                <div class="alert alert-success" role="alert">
-                  <?= $this->session->flashdata('success'); ?>
-                </div>
-          <?php }
-            if($this->session->flashdata('errors'))
-              { ?>
-                <div class="alert alert-danger" role="alert">
-                  <?= $this->session->flashdata('errors'); ?>
-                </div>
-
-
-          <?php } ?>
-
-
-						<div class="form-group">
-							<label></label>
-							<input type="text" class="form-control" name="username" placeholder="Username" autofocus>
-						</div>
-
-						<div class="form-group">
-							<label></label>
-							<input type="password" class="form-control" name="password" placeholder="Password">
-						</div>
-
-						<div class="form-group">
-							<label></label>
-							<input type="submit" class=" btn btn-success form-control" value="Login">
-						</div>
-					</form>
-
-					<form action="/users/new" method="post">
-						<div class="form-group">
-							<label>New User?</label>
-							<input type="submit" class=" btn btn-warning form-control" value="Create Account">
-						</div>
-					</form>
-
-				</div>
-    	</div>
-
-
-    </div><!-- /.container -->
+     
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

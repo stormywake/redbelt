@@ -21,17 +21,21 @@ $route['success'] = "sessions/success";
 $route['home'] = "sessions/success";
 
 //go to review page make new review
-$route['reviews/new'] = "Reviews";
+$route['trips/new'] = "trips";
 
 
 // create new review
-$route['reviews/create'] = "reviews/create";
+$route['trips/create'] = "trips/create";
 
 // log out destroy session
 $route['destroy'] = "sessions/destroy";
 
 //if not logged in return to login page
 $route['sessions/new'] = "sessions";
+
+//show individual trip info
+$route['trips/info/(:any)'] = "trips/show_trip_info/$1";
+
 
 
 

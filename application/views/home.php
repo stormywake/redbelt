@@ -25,34 +25,73 @@
           <a class="navbar-brand" href="<?= base_url('/home')?>">Home</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?= base_url('/reviews/new')?>">Add book and Review</a></li>
+          <li><a href="<?= base_url('/trips/new')?>">Add a new trip</a></li>
           <li><a href="<?= base_url('/destroy')?>">logout</a></li>
         </ul>
       </div>
     </nav>
 
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10">
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 text-center">
       <div class="page-header">
         <h1><?= ucwords($this->session->userdata('name')); ?><small> Welcome!</small></h1>
-      </div>    
-      </div>
+      </div><!-- end header --> 
+    </div><!-- end col -->
+  </div><!-- end row -->
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-striped">
+        <h3>Your Trip scheduals</h3>
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($trips as $value) {?>
+                <tr>
+                  <td><a href="<?= base_url('trips/info/'.$trips["id"]);?>"><?php echo $trips['destination']; ?></a></td>
+                  <td><?php echo $trips['travel_date_from']; ?></td>
+                  <td><?php echo $trips['travel_date_to']; ?></td>
+                  <td><?php echo $trips['description']; ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+      </table>
     </div>
-    <div class="row">
-      <label>Name:</label>
-      <div class="well">
-        <?= $this->session->userdata('name')?>
-      </div>
+  </div><!-- end row -->
 
-      <label>Alias</label>
-      <div class="well">
-        <?= $this->session->userdata('alias')?>
-      </div>
-
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-striped">
+        <h3>Other Users Travel PLans</h3>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Want to join?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($others_trips as $others_values) {?>
+                <tr>
+                  <td><?php echo $trips['author_name']; ?></td>
+                  <td><a href=""><?php echo $trips['destination']; ?></a></td>
+                  <td><?php echo $trips['travel_date_from']; ?></td>
+                  <td><?php echo $trips['travel_date_to']; ?></td>
+                  <td><button href="<?= base_url('trip/join')?>" class="btn btn-success">Join</button></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+      </table>
     </div>
-  </div>
+</div><!--  end of container -->
 
           
      

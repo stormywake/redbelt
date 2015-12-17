@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Book review</title>
+    <title>Trip Planner Register</title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url('assets/css/bootstrap.min.css" rel="stylesheet')?>">
@@ -25,7 +25,6 @@
           <a class="navbar-brand" href="<?= base_url('/home')?>">Home</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?= base_url('/reviews/new')?>">Add book and Review</a></li>
           <li><a href="<?= base_url('/destroy')?>">logout</a></li>
         </ul>
       </div>
@@ -55,12 +54,7 @@
             </div>
             <div class="form-group">
               <label></label>
-              <input type="text" class="form-control" name="alias" placeholder="Alias">
-            </div>
-
-            <div class="form-group">
-              <label></label>
-              <input type="text" class="form-control" name="email" placeholder="Email">
+              <input type="text" class="form-control" name="username" placeholder="Username">
             </div>
 
             <div class="form-group">
